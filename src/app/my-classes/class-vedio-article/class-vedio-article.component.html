@@ -1,0 +1,24 @@
+<div *ngIf="data.type=='vedio'" class="card">
+  <a class="vediocard_l" [routerLink]="['/home/videodetail',data.tab,data.id]" routerLinkActive="active" (mouseover)="changeDisplay(indexs)" (mouseout)="changeDisplay(indexs)">
+    <img [src]="data.img" alt="">
+    <div class="vedio_time" [ngClass]="{'display': display[indexs],'notDisplay': notDisplay[indexs]}">12:37</div>
+    <div class="vedio_pause" [ngClass]="{'display': !display[indexs],'notDisplay': !notDisplay[indexs]}">
+        <div class="vedio_pause_wrap">
+            <img src="../../assets/pause.png" alt="">
+        </div>
+    </div>
+  </a>
+  <a [routerLink]="['/home/videodetail',data.tab,data.id]" routerLinkActive="active">
+    <p>{{data.title}}</p>
+  </a>
+  <nz-tag style="margin:5px;" [nzColor]="colors[indexs%7]">{{data.tab}}</nz-tag>
+</div>
+<div *ngIf="data.type=='article'" class="card">
+  <a  [routerLink]="['/home/articledetail',data.tab,data.id]" routerLinkActive="active" class="vediocard_l">
+      <img [src]="data.img" alt="">
+  </a>
+  <a [routerLink]="['/home/articledetail',data.tab,data.id]" routerLinkActive="active">
+    <p>{{data.title}}</p>
+  </a>
+  <nz-tag style="margin:5px;" [nzColor]="colors[indexs%7]">{{data.tab}}</nz-tag>
+</div>

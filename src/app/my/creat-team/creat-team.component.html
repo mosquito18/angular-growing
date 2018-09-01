@@ -1,0 +1,47 @@
+<div class="creat_wrap">
+	<div class="myWrap" style="margin-top:30px;">
+		<label>团队名：</label>
+		<input type="text">
+	</div>
+	<div class="myWrap">
+		<label>团队管理人员：</label>
+		<div class="my_tag" *ngFor="let tag of tags">{{tag}}</div>
+
+		<nz-popover [nzPlacement]="'bottom'" [(nzVisible)]="visible" [nzTrigger]="'click'">
+			<div nz-popover class="my_tag" style="padding:3px 8px;"><i class="fa fa-plus"></i></div>
+			<ng-template #nzTemplate>
+				<div class="popcontent">
+					<input type="text">
+					<nz-checkbox-group [(ngModel)]="checkOptionsOne" (ngModelChange)="_log(checkOptionsOne)"></nz-checkbox-group>
+					<div class="sub_wrap">
+						<div (click)='clickMe()' class="sub">提交</div>
+					</div>
+				</div>
+			</ng-template>
+		</nz-popover>
+	</div>
+	<div class="myWrap" style="align-items:flex-start;">
+		<label style="white-space:nowrap;">团队成员：</label>
+		<div>
+			<div style="margin-bottom:5px;" class="my_tag" *ngFor="let team of teams">{{team}}</div>
+			<nz-popover [nzPlacement]="'top'" [(nzVisible)]="visible2" [nzTrigger]="'click'">
+				<div nz-popover class="my_tag" style="padding:3px 8px;"><i class="fa fa-plus"></i></div>
+				<ng-template #nzTemplate>
+					<div class="popcontent">
+						<input type="text">
+						<nz-checkbox-group [(ngModel)]="checkOptionsTwo" (ngModelChange)="_log(checkOptionsTwo)"></nz-checkbox-group>
+						<div class="sub_wrap">
+							<div (click)='clickMe2()' class="sub">提交</div>
+						</div>
+					</div>
+				</ng-template>
+			</nz-popover>
+
+		</div>
+
+	</div>
+	<div class="creatBtn">
+		<img (click)="out()" src="../../../assets/创建团队2.png" alt="">
+	</div>
+
+</div>

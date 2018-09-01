@@ -1,0 +1,50 @@
+<div id="myEnterprise">
+	<div class="creatBtn">
+		<img (click)="showModalForComponent()" src="../../../assets/创建企业.png" alt="">
+		<img (click)="showModalForComponent2()" src="../../../assets/创建团队.png" alt="">
+	</div>
+	<div class="myenter">
+		<div class="myInform">
+			<nz-avatar nzSize="large" nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+			<div class="business_word">
+				<p>XXX企业</p>
+				<p>企业代码：12138</p>
+			</div>
+			<img src="../../assets/编辑.png" alt="">
+		</div>
+		<div class="myWrap">
+			<div>
+				<span>隶属行业：</span><span>金融</span>
+			</div>
+			<img src="../../assets/编辑.png" alt="">
+		</div>
+		<div class="myWrap">
+			<div>
+				<span>地区：</span><span>浙江杭州</span>
+			</div>
+			<img src="../../assets/编辑.png" alt="">
+		</div>
+		<div class="myWrap">
+			<div>
+				<span>企业规模：</span><span>1000+</span>
+			</div>
+			<img src="../../assets/编辑.png" alt="">
+		</div>
+		<div class="myWrap">
+			<div style="padding-right:15px;">
+				<span>简介：</span><span>哈哈就会撒娇很大空间和道具卡即可对偶按实际客户即可家伙设计课后UI额卡萨韩剧看奥会计师就撒谎的健康极大撒大声地按与其欧诶诶和换届大会计算宽度极大啊啊的吧大厦对而我也的啥打算德哈卡看爱好看就</span>
+			</div>
+			<img src="../../assets/编辑.png" alt="">
+		</div>
+		<div class="myWrap">
+			<span>二维码</span>
+			<img style="width:50px;height:50px;" src="../../assets/二维码.png" alt="">
+		</div>
+		<div class="myWrap" style="border-bottom:none;">
+			<span style="white-space: nowrap;">已创建的团队：</span>
+			<div>
+				<nz-tag *ngFor="let enterprise of enterprises">{{enterprise}}</nz-tag>
+			</div>
+		</div>
+	</div>
+</div>

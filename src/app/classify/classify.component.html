@@ -1,0 +1,72 @@
+<div id="classifyComponent" [@fadeIn]>
+  <div class="classify_l minHeight">
+    <nz-input-group [nzSize]="'large'" nzCompact>
+      <nz-select [ngModel]="'全部'" (ngModelChange)="onChangeType($event)">
+        <nz-option [nzLabel]="'全部'" [nzValue]="'全部'"></nz-option>
+        <nz-option [nzLabel]="'视频'" [nzValue]="'视频'"></nz-option>
+        <nz-option [nzLabel]="'文章'" [nzValue]="'文章'"></nz-option>
+      </nz-select>
+      <div class="s_w">
+        <input type="text" [(ngModel)]="checkValue">
+        <img (click)="check(checkValue)" style="height:20px;margin-top:2px;" src="../../assets/search.png" alt="">
+      </div>
+
+    </nz-input-group>
+    <div style="display: flex;width:100%;flex-flow: row wrap;">
+      <nz-tag style="margin-top:10px;" [nzColor]="'pink'">区块链</nz-tag>
+      <nz-tag style="margin-top:10px;" [nzColor]="'red'">故事</nz-tag>
+      <nz-tag style="margin-top:10px;" [nzColor]="'orange'">小程序</nz-tag>
+      <nz-tag style="margin-top:10px;" [nzColor]="'green'">旅行青蛙</nz-tag>
+      <nz-tag style="margin-top:10px;" [nzColor]="'cyan'">无问西东</nz-tag>
+      <nz-tag style="margin-top:10px;" [nzColor]="'blue'">头脑王者</nz-tag>
+      <nz-tag style="margin-top:10px;" [nzColor]="'purple'">张艺兴</nz-tag>
+    </div>
+    <div class="historys-part">
+      <div class="historys">
+        <span style="color:#77a5f8">搜索记录</span>
+        <span (click)="delete()" style="color:#aaaaaa;cursor: pointer;">清空</span>        
+      </div>
+      <nz-tag nzClosable *ngFor="let record of records">{{record}}</nz-tag>
+    </div>
+  </div>
+  <div class="classify_r minHeight">
+    <span style="font-size:14px;padding:5px 0;">搜索“{{contentType}}”的结果如下：</span>
+    <div class="cards_wrap">
+
+      <div class="my_card" *ngFor="let card of cards;let index=index;"  (mouseenter)="hoverCard(card.content)" (mouseleave)="outCard()">
+        <a *ngIf="card.type=='article'" [routerLink]="['/home/articledetail',card.tab,card.id]" routerLinkActive="active">
+          <div class="custom-image">
+            <img alt="example" width="100%" height="100" [src]="card.img" />
+          </div>
+          <div class="custom-card">
+            <h5 style="padding:8px 0 5px;">{{card.title}}</h5>
+            <p class="custom-con"></p>
+            <div class="card_footer">
+              <nz-tag [nzColor]="colors[index%7]">{{card.tab}}</nz-tag>
+              <div class="card_icon">
+                <i class="fa fa-heart"></i><span>{{card.like}}</span>
+                <i class="fa fa-comment"></i><span>{{card.comment}}</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a *ngIf="card.type=='vedio'" [routerLink]="['/home/videodetail',card.tab,card.id]" routerLinkActive="active">
+          <div class="custom-image">
+            <img alt="example" width="100%" height="100" [src]="card.img" />
+          </div>
+          <div class="custom-card">
+            <h5 style="padding:8px 0 5px;">{{card.title}}</h5>
+            <p class="custom-con"></p>
+            <div class="card_footer">
+              <nz-tag [nzColor]="colors[index%7]">{{card.tab}}</nz-tag>
+              <div class="card_icon">
+                <i class="fa fa-heart"></i><span>{{card.like}}</span>
+                <i class="fa fa-comment"></i><span>{{card.comment}}</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

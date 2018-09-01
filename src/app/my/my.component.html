@@ -1,0 +1,37 @@
+<div id="myComponent" [@fadeIn]>
+	<ul nz-menu [nzMode]="'inline'" nzTheme='dark' class="myMenu">
+		<li nz-menu-item>
+			<a routerLink="/my/personmessage" routerLinkActive="active">
+			<i style="margin-right:8px;min-width:14px;" class="fa fa-vcard-o"></i>个人资料
+			</a>
+		</li>
+		<li nz-menu-item>
+			<a routerLink="/my/myenterprise" routerLinkActive="active">
+			<i style="margin-right:8px;min-width:14px;" class="fa fa-tasks"></i>我的企业
+			</a>
+		</li>
+		<li nz-menu-item>
+			<a routerLink="/my/myarticle" routerLinkActive="active">
+			<i style="margin-right:8px;min-width:14px;" class="fa fa-file-text"></i>我的文章
+			</a>
+		</li>
+		<li nz-menu-item>
+			<a routerLink="/my/likevedio" routerLinkActive="active">
+			<i style="margin-right:8px;min-width:14px;" class="fa fa-video-camera"></i>收藏的视频
+			</a>
+		</li>
+		<li nz-menu-item>
+			<a routerLink="/my/likearticle" routerLinkActive="active">
+			<i style="margin-right:8px;min-width:14px;" class="fa fa-file-text-o"></i>收藏的文章
+			</a>
+		</li>
+		<!--<li nz-menu-item>
+			<a routerLink="/my/createenterprise" routerLinkActive="active"><i class="anticon anticon-setting"></i>创建企业</a>
+		</li>-->
+
+
+	</ul>
+	<div class="myContent">
+		<router-outlet></router-outlet>
+	</div>
+</div>

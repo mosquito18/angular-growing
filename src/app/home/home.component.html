@@ -1,0 +1,71 @@
+<div id="homeComponent" [@fadeIn] #scrollMe >
+  <div class="content-t">
+    <div class="content-l">
+      <app-carousel></app-carousel>
+    </div>
+    <div class="content-r">
+      <nz-popover [nzTrigger]="'focus'" [nzTitle]="'热门搜索'" [nzPlacement]="'bottomLeft'">
+        <div class="search">
+          <input nz-popover class="nav_search" type="text" placeholder="input search text" [(ngModel)]="_value" />
+          <img src="../../assets/搜索-按钮.png" alt="">
+          <!--<i class="fa fa-search" (click)="onSearch()"></i>-->
+        </div>
+        <ng-template  #nzTemplate>
+          <div style="display: flex;width:205px;flex-flow: row wrap;">
+            <nz-tag style="margin:5px;" [nzColor]="'pink'">区块链</nz-tag>
+            <nz-tag style="margin:5px;" [nzColor]="'red'">故事</nz-tag>
+            <nz-tag style="margin:5px;" [nzColor]="'orange'">小程序</nz-tag>
+            <nz-tag style="margin:5px;" [nzColor]="'green'">旅行青蛙</nz-tag>
+            <nz-tag style="margin:5px;" [nzColor]="'cyan'">无问西东</nz-tag>
+            <nz-tag style="margin:5px;" [nzColor]="'blue'">头脑王者</nz-tag>
+            <nz-tag style="margin:5px;" [nzColor]="'purple'">张艺兴</nz-tag>
+          </div>
+        </ng-template>
+      </nz-popover>
+      <a [routerLink]="['/home',tab.label]" routerLinkActive="active" class="tabs_wrap" *ngFor="let tab of tabs">
+        <img [src]="tab.img" alt="">
+        <div class="home_tab">
+          <span>{{tab.label}}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="content-b" *ngFor="let title of titles">
+    <div class="card_t">
+      <span>{{title.label}}<i class="fa fa-free-code-camp"></i></span>
+      <a [routerLink]="['/home',title.en]" routerLinkActive="active">
+      <span style="color: #acacac;">MORE</span>
+      </a>
+      <!--thumbs-up-->
+    </div>
+    <div class="card_b">
+      <div class="card_l">
+        <div *ngIf="title.label=='热门视频'">  
+          <app-card [isType]="title.label"></app-card>
+        </div>
+        <div *ngIf="title.label=='热门文章'">
+          <app-article-card></app-article-card>
+        </div>
+      </div>
+      <div class="card_r">
+        <div *ngIf="title.label=='热门视频'">        
+          <app-vedio-card [datas]="vedios"></app-vedio-card>
+          <!--<a  routerLink="/vedio" [queryParams]="{id:'videogular',type:'mp4'}" routerLinkActive="active"></a>-->
+        </div>
+        <div *ngIf="title.label=='热门文章'">
+          <app-vedio-card [datas]="cards"></app-vedio-card>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+    <!--<p>热门视频</p>
+      malihu-scrollbar [scrollbarOptions]="scrollbarOptions"
+        <a  routerLink=`/vedio/${vedioType}/${vedioId}` routerLinkActive="active"><app-vedio-card></app-vedio-card></a>
+
+    <div class="home_card">
+      <app-card></app-card>     
+    </div>-->
+</div>

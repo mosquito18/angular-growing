@@ -1,0 +1,33 @@
+<div id="messageComponent" [@fadeIn]>
+	<ul nz-menu [nzMode]="'inline'" nzTheme='dark' class="messagesMenu">
+		<li nz-menu-item>
+			<a routerLink="/messages/allinform" routerLinkActive="active">
+			<i style="margin-right:8px;min-width:14px;" class="fa fa-info-circle"></i>全部通知
+			</a>
+		</li>
+		<li nz-menu-item>
+			<a routerLink="/messages/comments" routerLinkActive="active">
+			<i style="margin-right:8px;min-width:14px;" class="fa fa-comments"></i>收到的评论
+			</a>
+		</li>
+		<li nz-menu-item>
+			<a routerLink="/messages/likes" routerLinkActive="active">
+			<i style="margin-right:8px;min-width:14px;" class="fa fa-heart"></i>收到的点赞
+			</a>
+		</li>
+		<li nz-menu-item>
+			<a routerLink="/messages/missioninform" routerLinkActive="active">
+			<i style="margin-right:8px;min-width:14px;" class="fa fa-cogs"></i>任务相关
+			</a>
+		</li>
+		<li nz-menu-item>
+			<a routerLink="/messages/letterinform" routerLinkActive="active">
+			<i style="margin-right:8px;min-width:14px;" class="fa fa-envelope-open"></i>简信
+			</a>
+		</li>
+	</ul>
+	<div class="messagesContent">
+		<router-outlet></router-outlet>
+	</div>
+
+</div>

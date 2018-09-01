@@ -1,0 +1,40 @@
+<div id="testingComponent" [@fadeIn]>
+    <ul nz-menu [nzMode]="'inline'" nzTheme='dark' class="testingMenu">
+        <li nz-menu-item [nzSelected]="isSelected('/testing/testmyself')">
+            <a routerLink="/testing/testmyself" routerLinkActive="active"><i style="margin-right:8px;" class="fa fa-paint-brush"></i>自评</a>
+        </li>
+        <li class="menu-test-each" nz-submenu>
+            <span title><i style="margin-right:8px;" class="fa fa-send"></i>互评</span>
+            <ul>
+                <li nz-menu-item [nzSelected]="isSelected('/testing/testeach/同事1')">
+                    <a routerLink="/testing/testeach/同事1" routerLinkActive="active">
+                    <i style="margin-right:8px;" class="fa fa-user-o"></i>同事1 
+                    <img *ngIf="isTest1" src="../../assets/已完成.png" alt="">
+                    </a>
+                </li>
+                <li nz-menu-item [nzSelected]="isSelected('/testing/testeach/同事2')">
+                    <a routerLink="/testing/testeach/同事2" routerLinkActive="active">
+                    <i style="margin-right:8px;" class="fa fa-user-o"></i>同事2 
+                        <img *ngIf="isTest2" src="../../assets/已完成.png" alt="">
+                    </a>
+                </li>
+                <li nz-menu-item [nzSelected]="isSelected('/testing/testeach/同事3')">
+                    <a routerLink="/testing/testeach/同事3" routerLinkActive="active">
+                    <i style="margin-right:8px;" class="fa fa-user-o"></i>同事3 
+                        <img *ngIf="isTest3" src="../../assets/已完成.png" alt="">
+                    </a>
+                </li>
+                <li nz-menu-item [nzSelected]="isSelected('/testing/testeach/同事4')">
+                    <a routerLink="/testing/testeach/同事4" routerLinkActive="active">
+                    <i style="margin-right:8px;" class="fa fa-user-o"></i>同事4 
+                        <img *ngIf="isTest4" src="../../assets/已完成.png" alt="">
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="testingContent">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

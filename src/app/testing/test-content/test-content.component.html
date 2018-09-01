@@ -1,0 +1,33 @@
+<div id="testComponent">
+  <p>XXX测试</p>
+  <div *ngFor="let test of tests;let index=index">
+    <div class="test-question">
+      <img src="../../assets/标.png" alt="">
+      <span>{{index+1}}.{{test.question}}</span>   
+    </div>
+    <div class="test-anwsers">
+      <img *ngIf="isChoose[index][0]" (click)=choose(index,0) src="../../assets/选项-亮.png" alt="">
+      <img *ngIf="!isChoose[index][0]" (click)=choose(index,0) src="../../assets/选项-暗.png" alt="">
+      <span>{{test.answerA}}</span>
+      <!--<span>{{isChoose[index][0]}}</span>-->
+    </div>
+    <div class="test-anwsers">
+      <img *ngIf="isChoose[index][1]" (click)=choose(index,1) src="../../assets/选项-亮.png" alt="">
+      <img *ngIf="!isChoose[index][1]" (click)=choose(index,1) src="../../assets/选项-暗.png" alt=""> 
+      <span>{{test.answerB}}</span>
+    </div>
+    <div class="test-anwsers">
+      <img *ngIf="isChoose[index][2]" (click)=choose(index,2) src="../../assets/选项-亮.png" alt="">
+      <img *ngIf="!isChoose[index][2]" (click)=choose(index,2) src="../../assets/选项-暗.png" alt=""> 
+      <span>{{test.answerC}}</span>
+    </div>
+    <div class="test-anwsers">
+      <img *ngIf="isChoose[index][3]" (click)=choose(index,3) src="../../assets/选项-亮.png" alt="">
+      <img *ngIf="!isChoose[index][3]" (click)=choose(index,3) src="../../assets/选项-暗.png" alt=""> 
+      <span>{{test.answerD}}</span>
+    </div>
+  </div>
+  <div class="btn-wrap">
+    <div (click)="handleCancel($event)" class="text-btn">完成测评</div>
+  </div>
+</div>

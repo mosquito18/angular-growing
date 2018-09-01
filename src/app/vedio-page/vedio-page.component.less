@@ -1,0 +1,182 @@
+#vedioPage{
+    display: flex;
+    background: #333333;
+    app-vedio{
+        width: 70%;
+    }
+    .vedio_l{
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        position: relative;
+        .search_wrap{
+             position:absolute;
+             left:0;
+             bottom:0;
+             padding-top:5px;
+             background: #333;
+             width:100%;
+        }
+        .search{
+            display: flex;
+            width: 85%;
+            margin-left: 7.5%;
+            height: 25px;
+            align-items: center;
+            border-radius: 30px;
+            padding: 0 10px;
+            background: #252525;
+            .who{
+                flex:0 0 auto;
+                color:#ffd03f;
+                padding-right:5px;
+            }
+            input{
+                border:none;
+                height: 20px;
+                flex:1;
+                // width: 210px;
+                background: #252525;
+                &:focus{
+                    outline: none
+                }
+            }
+            img{
+                flex:0 0 auto;
+            }
+        }
+    }
+    .vedio_l_t{
+        color:#fff;
+        display: flex;
+        flex-direction: row;
+        padding: 15px 15px 10px;
+        // justify-content: center;
+        align-items: center;
+        nz-avatar{
+            margin-right: 10px;
+        }
+        p{
+            font-size: 16px;
+        }
+    }
+    nz-tabset{
+        // height: 100%;
+        height: 387px;
+    }
+    .synopsis{
+        padding:0 15px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        line-height: 24px;
+        justify-content: space-between;
+        .like{
+            position: absolute;
+            bottom: 0px;
+            left:15;
+        }
+    }
+    .comments{
+        padding:0 15px;
+        height: 330px;
+        overflow: auto;
+        .comment{
+            .comment_h{
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                margin-bottom: 5px;
+            }
+            nz-avatar{
+                width:25px;
+                height: 25px;
+                margin-right: 5px;
+            }
+            border-bottom: 1px solid #fff;
+            color:#fff;
+            padding: 15px 0 10px;
+        }
+
+    }
+
+}
+.displayVedio{
+    width:100%;
+    overflow: hidden;
+    background: #333333;
+    padding-bottom: 10px;
+    .realyWidth{
+        height: 126px;        
+        display: flex;
+        flex-direction: row;
+        // flex-wrap: nowrap;
+    }
+    .vedioCardComponent{
+        width: 360px;
+        padding:13px;
+        height: 111px;
+        display: flex;
+        // flex:1;
+        // flex-direction: row;
+        margin:13px 0 13px 13px;
+        background: #1a1a1a;
+        .vediocard_l{
+            width:125px;
+            position: relative;
+            img{
+                width:125px;
+                height: 85px;
+            }
+            .vedio_time{
+                position: absolute;
+                background-color: fade(#000,20%);
+                color: #fff;
+                padding: 3px 5px;
+                right:5px;
+                bottom:5px;
+            }
+            .vedio_pause{
+                position: absolute;
+                left:0;
+                top: 0;
+                background-color: fade(#000,30%);
+                height: 100%;
+                img{
+                    height: 50%;
+                    width: 40%;
+                }
+                .vedio_pause_wrap{
+                    height: 100%;          
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+        .vediocard_r{
+            width:210px;
+            display: flex;
+            flex:1;
+            flex-direction: column;
+            padding-left:15px;
+            justify-content: space-between;
+            span,i{
+                color:#acacac;
+            }
+            .vedio_tip{
+                color:#000;
+            }
+            .vedio_tip:hover{
+                color:#d3d3d3;
+            }
+        }
+        .display{
+        display: block;  
+        }
+        .notDisplay{
+            display: none;
+        }
+    }
+}

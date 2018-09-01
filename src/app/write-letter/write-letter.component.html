@@ -1,0 +1,34 @@
+<div id="writeLetterComponent">
+    <ul nz-menu [nzMode]="'inline'" nzTheme='dark' class="writeLetterMenu">
+        <li class="menu-test-each" nz-submenu>
+            <span title><i class="anticon anticon-setting"></i>联系人</span>
+            <ul>
+                <li nz-menu-item>
+                    <a routerLink="/messages/letterinform/write/同事1" routerLinkActive="active">同事1 
+                    <img *ngIf="isTest1" src="../../assets/已完成.png" alt="">
+                    </a>
+                </li>
+                <li nz-menu-item>
+                    <a routerLink="/messages/letterinform/write/同事2" routerLinkActive="active">同事2 
+                        <img *ngIf="isTest2" src="../../assets/已完成.png" alt="">
+                    </a>
+                </li>
+                <li nz-menu-item>
+                    <a routerLink="/messages/letterinform/write/同事3" routerLinkActive="active">同事3 
+                        <img *ngIf="isTest3" src="../../assets/已完成.png" alt="">
+                    </a>
+                </li>
+                <li nz-menu-item>
+                    <a routerLink="/messages/letterinform/write/同事4" routerLinkActive="active">同事4 
+                        <img *ngIf="isTest4" src="../../assets/已完成.png" alt="">
+                    </a>
+                </li>            
+            </ul>
+        </li>
+    </ul>
+    <div class="writeLetterContent">
+      <app-edit-letter></app-edit-letter>
+        <!--<router-outlet></router-outlet>-->
+    </div>
+
+</div>

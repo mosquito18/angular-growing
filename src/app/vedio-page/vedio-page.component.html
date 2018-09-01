@@ -1,0 +1,80 @@
+<div class="minHeight" style="background:#333333;" [@fadeIn]>
+    <div id="vedioPage">
+        <app-vedio [id]="id"></app-vedio>
+        <div class="vedio_l">
+            <div class="vedio_l_t">
+                <nz-avatar nzIcon="user" [nzSrc]="vedio?.avatorimg"></nz-avatar>
+                <div>
+                    <p>{{vedio?.avator}}</p>
+                    <span>{{vedio?.eye}} 视频播放   {{vedio?.like}} 喜欢</span>
+                </div>
+            </div>
+
+            <nz-tabset [(nzSelectedIndex)]="nzSelectedIndex" (nzSelectedIndexChange)="isSelected(nzSelectedIndex)">
+                <nz-tab>
+                    <ng-template #nzTabHeading>简介</ng-template>
+                    <div class="synopsis">
+                        <div>{{vedio?.content}}</div>
+                        <div class="like">
+                            <i style="margin-right:5px;" (click)="like()" class="love fa fa-heart"></i>
+                            <span class="love_num">{{vedio?.like}}</span>
+                        </div>
+                    </div>
+                </nz-tab>
+                <nz-tab>
+                    <ng-template #nzTabHeading>
+                        <i style="margin-right:5px;" class="fa fa-commenting"></i>({{vedio?.comment}})
+                    </ng-template>
+                    <div class="comments" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+                        <div class="comment" *ngFor="let comment of comments">
+                            <div class="comment_h">
+                                <nz-avatar nzIcon="user" [nzSrc]="comment.avator"></nz-avatar>
+                                <span>{{comment?.username}}</span>
+                            </div>
+                            <div>{{comment?.content}}</div>
+                            <div style="text-align:right;">
+                                <i style="margin-right:5px;" (click)="whoComment(comment.username)" class="fa fa-commenting"></i>
+                                {{comment?.date | date:"HH:mm"}}</div>
+                        </div>
+
+                    </div>
+
+                </nz-tab>
+            </nz-tabset>
+            <div *ngIf="isSelecteds" class="search_wrap">
+                <div class="search">
+                    <span class="who"></span>
+                    <input class="nav_search" type="text" placeholder="请输入您的回复~" [(ngModel)]="_value" />
+                    <img style="height:15px;" src="../../assets/评论.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="displayVedio" malihu-scrollbar [scrollbarOptions]="scrollbarX">
+        <div class="realyWidth">
+            <div class="vedioCardComponent" *ngFor="let data of vedios;let index=index">
+                <a class="vediocard_l" *ngIf="data.type=='vedio'" [routerLink]="['/home/videodetail',data.tab,data.id]" routerLinkActive="active"
+                    (mouseover)="changeDisplay(index)" (mouseout)="changeDisplay(index)">
+                    <img [src]="data.img" alt="">
+                    <div class="vedio_time" [ngClass]="{'display': display[index],'notDisplay': notDisplay[index]}">12:37</div>
+                    <div class="vedio_pause" [ngClass]="{'display': !display[index],'notDisplay': !notDisplay[index]}">
+                        <div class="vedio_pause_wrap">
+                            <img src="../../assets/pause.png" alt="">
+                        </div>
+                    </div>
+                </a>
+                <div class="vediocard_r">
+                    <a [routerLink]="['/home/videodetail',data.tab,data.id]" routerLinkActive="active" class="vedio_tip">
+                        <div>{{data.title}}</div>
+                        <div>{{data.content}}</div>
+                    </a>
+                    <div>
+                        <nz-tag style="margin:5px;" [nzColor]="colors[index%7]">{{data.tab}}</nz-tag>
+                        <i style="margin-right:5px;" class="fa fa-heart"></i><span>{{data.like}}</span>
+                        <i style="margin-right:5px;" class="fa fa-comment"></i><span>{{data.comment}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div id="dailys" [@fadeIn]>
+	<a  [routerLink]="['/mydaily',mission.title]" routerLinkActive="active" class="mission-card" *ngFor="let mission of missions;let index=index">
+		<img *ngIf="mission.isFinish && mission.priority=='十万火急'" class="top-tab" [src]="finishColor[0]" alt="">		
+		<img *ngIf="mission.isFinish && mission.priority=='优先处理'" class="top-tab" [src]="finishColor[1]" alt="">		
+		<img *ngIf="mission.isFinish && mission.priority=='正常处理'" class="top-tab" [src]="finishColor[2]" alt="">		
+		<img *ngIf="mission.isFinish && mission.priority=='有空再说'" class="top-tab" [src]="finishColor[3]" alt="">		
+		<img *ngIf="!mission.isFinish && mission.priority=='十万火急'" class="top-tab" [src]="tabColor[0]" alt="">		
+		<img *ngIf="!mission.isFinish && mission.priority=='优先处理'" class="top-tab" [src]="tabColor[1]" alt="">		
+		<img *ngIf="!mission.isFinish && mission.priority=='正常处理'" class="top-tab" [src]="tabColor[2]" alt="">		
+		<img *ngIf="!mission.isFinish && mission.priority=='有空再说'" class="top-tab" [src]="tabColor[3]" alt="">		
+		
+		<div class="mis-wrap">
+			<p class="mis-title">{{mission.title}}</p>
+			<p class="mis-content">{{mission.content}}</p>
+			<p class="mis-publisher">发布人：{{mission.publisher}}</p>
+			<p class="mis-endTime">截止时间：{{mission.endTime}}</p>
+		</div>
+		<div style="display:flex;justify-content: flex-end;padding-right:10px;">
+			<img *ngIf="mission.isFinish"src="../../assets/已完成icon.png" alt="">
+		</div>
+		
+	</a>
+</div>

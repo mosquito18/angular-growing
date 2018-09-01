@@ -1,0 +1,25 @@
+<div *ngIf="isType=='热门视频'">
+  <div *ngFor="let vedio of vedios;let index=index">
+    <div id="cardComponent" *ngIf="index==0">
+      <a class="vedio_img" [routerLink]="['/home/videodetail',vedio.tab,vedio.id]" (mouseover)="changeDisplay()" (mouseout)="changeDisplay()"
+        routerLinkActive="active">
+        <img src="../../assets/vedio1.jpg" alt="">
+        <div [ngClass]="{'display': display,'notDisplay': notDisplay}" class="vedio_time">31:14</div>
+        <div [ngClass]="{'display': !display,'notDisplay': !notDisplay}" class="vedio_pause">
+            <div class="vedio_pause_wrap">
+                <img src="../../assets/pause.png" alt="">
+            </div>
+        </div>
+      </a>
+      <a [routerLink]="['/home/videodetail',vedio.tab,vedio.id]" routerLinkActive="active" class="card_title">{{vedio.title}}</a>
+      <div style="line-height: 20px;">{{vedio.content}}</div>
+      <div class="card_footer">
+        <nz-tag style="margin:5px;" [nzColor]="colors[index%7]">{{vedio.tab}}</nz-tag>
+        <div>
+          <i class="fa fa-heart"></i><span>{{vedio.like}}</span>
+          <i class="fa fa-comment"></i><span>{{vedio.comment}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

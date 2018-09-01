@@ -1,0 +1,61 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    margin-right:17px;
+    a{
+        color:#000;
+        >p{
+            font-size: 14px;
+            font-weight: bold;
+            width:175px;
+            height:22px;
+            line-height:22px; 
+            white-space: nowrap;
+            text-overflow:ellipsis; 
+            overflow:hidden;
+        }
+
+    }
+}
+.vediocard_l{
+    width:175px;
+    height: 110px;
+    position: relative;
+    display: inline-block;
+    >img{
+        width:175px;
+        height: 110px;
+    }
+    .vedio_time{
+        position: absolute;
+        background-color: fade(#000,20%);
+        color: #fff;
+        padding: 3px 5px;
+        right:10px;
+        bottom:10px;
+    }
+    .vedio_pause{
+        position: absolute;
+        left:0;
+        top: 0;
+        background-color: fade(#000,30%);
+        height: 100%;
+        img{
+            height: 50%;
+            width: 35%;
+        }
+        .vedio_pause_wrap{
+            height: 100%;          
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+.display{
+    display: block;  
+}
+.notDisplay{
+    display: none;
+}

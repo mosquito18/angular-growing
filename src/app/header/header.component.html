@@ -1,0 +1,64 @@
+<div id="headerComponent">
+	<div class="header_l">
+		<a routerLink="/home" routerLinkActive="active" style="padding:0;"><img src="../../assets/index_logo.png" alt=""></a>
+		<a routerLink="/home" routerLinkActive="active">首页</a>
+		<a routerLink="/mydaily" routerLinkActive="active">我的日报</a>
+		<a routerLink="/myclasses" routerLinkActive="active">我的学习</a>
+		<a routerLink="/testing/testmyself" routerLinkActive="active">开始测评</a>
+	</div>
+	<div class="header_c">
+		<nz-popover [nzTrigger]="'click'" [(nzVisible)]="visible" [nzTitle]="'热门搜索'" [nzPlacement]="'bottomLeft'">
+			<div class="search">
+				<input nz-popover class="nav_search" type="text" placeholder="input search text" [(ngModel)]="_value" />
+				<img (click)="onSearch()" style="height:20px;" src="../../assets/搜索-按钮.png" alt="">
+			</div>
+			<ng-template #nzTemplate>
+				<div style="display: flex;width:170px;flex-flow: row wrap;">
+					<nz-tag *ngFor="let tab of tabs;let index=index;"  (click)="getTag(tab)" style="margin:5px;" [nzColor]="colors[index%7]">{{tab.label}}</nz-tag>
+				</div>
+			</ng-template>
+		</nz-popover>
+	</div>
+	<div class="header_r">
+		<div class="after_login" *ngIf="currentUser?.userName">
+			<a class="nav_icon" routerLink="/write" routerLinkActive="active"><i class="fa fa-pencil"></i></a>
+			<a class="nav_icon" routerLink="/messages/allinform" routerLinkActive="active">
+				<nz-badge nzDot>
+					<ng-template #content>
+						<i class="fa fa-bell"></i>
+					</ng-template>
+				</nz-badge>
+			</a>
+			<nz-popover [nzPlacement]="'bottomRight'">
+				<div style="height:32px;" nz-popover class="avatar ant-dropdown-link" nz-dropdown>
+					<nz-avatar style="height:100%;width:32px;" nzSize="large" nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+				</div>
+				<ng-template #nzTemplate>
+					<div class="business_card">
+						<div class="business_content">
+							<nz-avatar nzSize="large" nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+							<div class="business_word">
+								<p class="">林木木的木</p>
+								<p>XX企业财务部</p>
+							</div>
+						</div>
+						<div class="business_btn">
+							<a routerLink="/my/personmessage" routerLinkActive="active">
+								<span>个人中心</span>
+								<img style="margin-right:10px;" src="../../assets/个人中心.png" alt="">						
+							</a>
+							<img (click)="doLogout()" src="../../assets/退出.png" alt="">
+						</div>
+					</div>
+				</ng-template>
+			</nz-popover>
+		</div>
+
+		<div *ngIf="!currentUser?.userName">
+			 <!--routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"-->
+			<a class="login" (click)="showModalForComponent()">登录/注册</a>
+			 <!--routerLink="/register" routerLinkActive="active"-->
+			<!--<a class="regist">注册</a>-->
+		</div>
+	</div>
+</div>

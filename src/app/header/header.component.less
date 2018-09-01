@@ -1,0 +1,168 @@
+#headerComponent{
+    display: flex;
+    flex:1;
+    height: 48px;
+    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: space-between;  
+    a{
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+        line-height: 48px;
+        &:hover{
+            color:#deb30f;
+        }
+    }
+    .header_l {
+        flex: 0 0 auto;
+        align-items: center;      
+        display: flex;
+        height: 100%;
+        a{
+            padding:0 20px; 
+            &.active{
+                color:#deb30f;
+            }
+        }
+        img{
+            height: 30px;
+            margin-top: -5px;
+        }
+    }
+    .header_c{
+        width:220px;
+        flex: 0 0 auto;
+        .search{
+            margin:23px 0;
+            border: 2px solid #767676;
+            width:100%x;
+            display: flex;
+            flex: 0 0 auto;
+            height: 25px;
+            align-items: center;
+            border-radius: 30px;
+            padding: 0 10px;
+            background: #fff;
+            input{
+                border:none;
+                height: 20px;
+                width: 265px;
+                &:focus{
+                    outline: none
+                }
+            }
+        }
+    }
+    .header_r{
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: space-between;     
+        display: flex;
+        height: 48px;
+        flex-flow: row nowrap;
+        .nav_icon{
+            &.active{
+                color:#deb30f;
+            }
+        }
+        .after_login{
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: space-between;     
+            display: flex;
+            height: 48px;
+            flex-flow: row nowrap;
+        }
+        a{
+            padding:0 10px; 
+        }
+        .regist,.login{           
+            border-radius: 30px;
+            font-weight: bold;
+            
+            padding:3px 15px;
+        }
+        .regist{
+            color: #333;
+            background: #fff;
+            border: 1px solid #fff;
+            // &:hover{
+            //     color: #fff;
+            //     background: #837;                
+            // }
+        }
+        .login{
+            border: 1px solid #ffcc00;
+            color: #ffcc00;
+            margin-right:15px;
+            // &:hover{
+            //     color: #837;
+            //     background: #fff;                
+            // }
+        }
+        .avatar{
+            display: flex;
+            flex:1;
+            align-items: center;
+            flex: row;
+            nz-avatar{
+                margin:0 10px;
+            }
+            span{
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+    }
+
+}
+.head-example {
+    width: 42px;
+    height: 42px;
+    border-radius: 6px;
+    background: #eee;
+    display: inline-block;
+}
+.business_card{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    .business_content{
+        display: flex;
+        flex:1;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 0;
+        nz-avatar{
+            width:70px;
+            height: 70px;
+            border-radius: 50%;
+        }
+        p{
+            padding: 0px 10px;
+        }
+        p:first-child{
+            font-size: 16px;
+            font-weight: bold;
+        }
+        p:last-child{
+            color: #acacac;
+        }
+    }
+    .business_btn{
+        display: flex;
+        flex:1;
+        align-items: center;
+        flex-direction: row;
+        justify-content:flex-end;
+        img{
+            width:20px;
+            height: 20px;
+        }
+        span{
+            vertical-align: middle;
+        }
+    }
+}
+

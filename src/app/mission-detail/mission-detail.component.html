@@ -1,0 +1,50 @@
+<div id="missionDetail" [@fadeIn]>
+  <div class="mission-part" *ngIf="missions">
+    <div *ngIf="missions.id%4==1" style="height:16px;background:#df5252;"></div>
+    <div *ngIf="missions.id%4==2" style="height:16px;background:#ffd631;"></div>
+    <div *ngIf="missions.id%4==3" style="height:16px;background:#3191fe;"></div>
+    <div *ngIf="missions.id%4==0" style="height:16px;background:#78c79c;"></div>
+    
+    <div class="mission-wrap">
+      <p class="mis-title">{{missions.title}}</p>
+      <p class="mis-content">{{missions.content}}</p>
+      <p class="mis-publisher">发布人：{{missions.publisher}}</p>
+      <p class="mis-publisher">截止时间：{{missions.endTime}} 23:01:34</p>
+      <p class="mis-publisher">优先级：{{missions.priority}}</p>
+      <p class="mis-endTime">阶段：{{missions.stage}}</p>
+      <div class="mis-btn">
+        <img *ngIf="missions.isFinish" src="../../assets/已完成icon.png" alt="">             
+        <img style="cursor: pointer;" *ngIf="!missions.isFinish" (click)="changeIsFinish()" [src]="btnColor[(missions.id-1)%4]" alt="">        
+      </div>
+    </div>    
+
+  </div>
+  <div class="daily-part">
+    <p class="dai-title">我的日报</p>
+    <div class="dai-content">
+      <input type="text" placeholder="今日完成工作">
+      <input type="text" placeholder="今日未完成工作">
+      <input type="text" placeholder="需协调的工作">
+      <textarea rows="5" placeholder="备注"></textarea>
+      <div class="dai-tag">
+        提交给：
+        <nz-tag *ngFor="let tag of tags; let i = index;"
+          [nzClosable]="i !== 0"
+          (nzClose)="handleClose(tag)">
+          {{sliceTagName(tag)}}
+        </nz-tag>
+        <button nz-button *ngIf="!inputVisible"
+          [nzSize]="'small'" [nzType]="'dashed'"
+          (click)="showInput()">+ New Tag</button>
+        <input nz-input #input
+          *ngIf="inputVisible" type="text"
+          [(ngModel)]="inputValue"
+          style="width: 78px;"
+          (blur)="handleInputConfirm()" (keydown.enter)="handleInputConfirm()">
+      </div>
+    </div>
+    <div class="dai-btn">
+      <img style="cursor: pointer;" src="../../assets/任务完成.png" alt="">        
+    </div>
+  </div>
+</div>

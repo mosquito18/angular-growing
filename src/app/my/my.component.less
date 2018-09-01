@@ -1,0 +1,23 @@
+#myComponent{
+    display: flex;
+    flex:row;
+    .myMenu{
+        width:180px;
+        .menu-test-each{
+            img{
+                width:12px;
+                margin:-3px 0 0 3px;
+            }
+        }
+    }
+    .myContent{
+        width: calc(~"100% - 180px");
+        height: 700px;
+        flex:0 0 auto;
+        padding: 20px 40px;
+        background: #eeeeee;
+    }
+    .ant-menu.ant-menu-dark .ant-menu-item-selected{
+        background-color:#ffcc00;
+    }
+}

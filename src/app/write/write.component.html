@@ -1,0 +1,71 @@
+<!--<div id="writeComponent">
+    <div class="editor">
+        <div froalaEditor>Hello, Froala!</div>
+    </div>
+</div>-->
+
+<!--<editor apiKey="test" [init]="{plugins: 'link'}"></editor>-->
+<!--<simple-tiny [elementId]="'my-editor-id'" (onEditorKeyup)="keyupHandlerFunction($event)"></simple-tiny>-->
+<div class="write-post-container" [@flyIn]="'active'">
+    <div class="row">
+        <div class="col-sm-12">
+            <form role="form">
+                <div class="types">
+                    <div style="display: inline-block;margin-right:50px;">
+                        <span>文章分类：</span>
+                        <div style="cursor:pointer;" class="type-btn" (click)="showModal()">
+                            <span id="tabOne">分类1</span>
+                            <i class="fa fa-pencil"></i>
+                        </div>
+                        <nz-modal [nzWidth]="350" [nzVisible]="isVisible" [nzContent]="modalContent" (nzOnCancel)="handleCancel($event)">
+                            <ng-template #modalContent>
+                                <div style="padding:10px;">
+                                    <p class="tab-tip">请选择：</p>
+                                    <div class="tab-wrap">
+                                        <a (click)="handleCancel(tab.label)" class="tab" *ngFor="let tab of tabs">{{tab.label}}</a>
+                                    </div>
+                                </div>
+
+                            </ng-template>
+                        </nz-modal>
+                    </div>
+                    <div style="display: inline-block;">
+                        <span>文章标签：</span>
+                        <div style="cursor:pointer;" class="type-btn" (click)="showModal2()">
+                            <span id="tabTwo">分类2</span>
+                            <i class="fa fa-pencil"></i>
+                        </div>
+                        <nz-modal [nzWidth]="350"  [nzVisible]="isVisibleMiddle" [nzContent]="modalContent2" (nzOnCancel)="handleCancel2($event)">
+                            <ng-template #modalContent2>
+                                <div style="padding:10px;">
+                                    <p class="tab-tip">请选择：</p>
+                                    <div class="tab-wrap">
+                                        <a (click)="handleCancel2(tab.label)" class="tab" *ngFor="let tab of titles">{{tab.label}}</a>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </nz-modal>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="请输入文章标题">
+                </div>
+                <div class="form-group">
+                    <textarea id="post_editor" class="form-control" rows="20" placeholder="内容，最少140字，最多2万字。图片每张最大500K，每篇文章最多50张图。"></textarea>
+                    <iframe id="form_target" name="form_target" style="display:none"></iframe>
+                    <form id="file_upload_form" target="form_target" method="post" enctype="multipart/form-data" style="width:0px;height:0;overflow:hidden">
+                        <input id="img_input" name="image" type="file" (change)="fileInputChangeHandler()">
+                    </form>
+                </div>
+                <!--<button type="submit" class="btn btn-success">提交</button>-->
+                <div class="write-btn">
+                    <img  style="cursor:pointer;" src="../../assets/发布.png" alt="">
+                    <img style="cursor:pointer;" src="../../assets/保存.png" alt="">
+                    <img style="cursor:pointer;" src="../../assets/返回.png" alt="">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

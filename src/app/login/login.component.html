@@ -1,0 +1,126 @@
+<div class="login">
+  <img src="../../assets/图.png" alt="">
+  <div class="login_l">
+    <nz-tabset *ngIf="!isForget" [(nzSelectedIndex)]="nzSelectedIndex" (nzSelectedIndexChange)="isChanged(nzSelectedIndex)">
+      <nz-tab>
+        <ng-template #nzTabHeading>
+          <div class="logo_btn btn_l logo_btn_l">登录 Sign up</div>
+        </ng-template>
+        <div class="login_content">
+          <form #form="ngForm" (ngSubmit)="form.form.valid && doLogin()" novalidate role="form">
+            <div [ngClass]="{ 'has-error': form.submitted && !userName.valid }">
+              <label style="margin-top:40px;">手机号/邮箱：</label>
+              <div>
+                <input required name="userName" [(ngModel)]="user.userName" #userName="ngModel" type="text">
+                <div *ngIf="form.submitted && !userName.valid" class="text-danger">用户名必须输入！</div>
+              </div>
+            </div>
+            <div [ngClass]="{ 'has-error': form.submitted && !password.valid }">
+              <label style="margin-top:30px;">密码：</label>
+              <div>
+                <input required minlength="8" [(ngModel)]="user.password" name="password" #password="ngModel" type="password">
+                <div *ngIf="form.submitted && !password.valid" class="text-danger">密码必须输入,至少要8位！</div>
+              </div>
+            </div>
+            <a (click)="isForgeted()">
+              <p>忘记密码</p>
+            </a>
+            <button class="submintBtn mt7" type="submit"><img src="../../assets/登录键.png" alt=""></button>
+          </form>
+        </div>
+      </nz-tab>
+      <nz-tab>
+        <ng-template #nzTabHeading>
+          <div class="logo_btn btn_r">注册</div>
+        </ng-template>
+        <div class="register_content">
+          <form [formGroup]="userForm" (ngSubmit)="doRegister()" role="form" novalidate>
+            <div [ngClass]="{'has-error': formErrors.email }">
+              <label style="margin-top:30px;">手机号/邮箱：</label>
+              <div>
+                <input formControlName="email" type="email">
+                <div *ngIf="formErrors.email" class="text-danger">
+                  {{ formErrors.email }}
+                </div>
+              </div>
+            </div>
+            <div [ngClass]="{'has-error': formErrors.vcode }">
+              <label>验证码：</label>
+              <div style="border-bottom: 1px solid #999999;">
+                <input type="text" formControlName="vcode" class="verification_input">
+                <div class="verification">验证</div>
+              </div>
+              <div *ngIf="formErrors.vcode" class="text-danger">
+                {{ formErrors.vcode }}
+              </div>
+            </div>
+            <div [ngClass]="{'has-error': formErrors.password }">
+              <label>密码：</label>
+              <div>
+                <input formControlName="password" validateEqual="confirmPassword" reverse=true type="password">
+                <div *ngIf="formErrors.password" class="text-danger">
+                  {{ formErrors.password }}
+                </div>
+              </div>
+            </div>
+            <button [disabled]="userForm.invalid" class="submintBtn mt4" type="submit"><img src="../../assets/注册键.png" alt=""></button>
+          </form>
+        </div>
+      </nz-tab>
+    </nz-tabset>
+    <div class="forget_part" *ngIf="isForget">
+      <div class="forget_title">找回密码</div>
+      <form *ngIf="!message" #form="ngForm" (ngSubmit)="form.form.valid && sendValidationEmail()" role="form" novalidate>
+        <div [ngClass]="{'has-error': form.submitted && !email.valid}">
+          <label style="margin-top:40px;">邮箱：</label>
+          <div>
+            <input required pattern="^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$" #email="ngModel" [(ngModel)]="user.email"
+              name="email" type="email">
+            <div *ngIf="form.submitted && !email.valid" class="text-danger">请输入注册时使用的邮箱。</div>
+          </div>
+        </div>
+        <button type="submit" style="margin-top:40px;" class="btn btn-success">发送验证邮件</button>
+      </form>
+      <div style="margin-top: 15px;" *ngIf="message" class="alert alert-{{messgeType}}">{{message}}</div>
+    </div>
+  </div>
+</div>
+<!--<div class="login">
+  <img src="../../assets/图.png" alt="">
+  <div class="login_l">
+    <nz-tabset [(nzSelectedIndex)]="nzSelectedIndex" (nzSelectedIndexChange)="isChanged(nzSelectedIndex)">
+      <nz-tab>
+        <ng-template #nzTabHeading>
+          <div class="logo_btn btn_l logo_btn_l">登录 Sign up</div>
+        </ng-template>
+        <div class="login_content">
+          <label style="margin-top:60px;">手机号/邮箱：</label>
+          <input type="text">
+          <label>密码：</label>
+          <input type="text">
+          <a href="">
+            <p>忘记密码</p>
+          </a>
+          <a href=""><img src="../../assets/登录键.png" alt=""></a>
+        </div>
+      </nz-tab>
+      <nz-tab>
+        <ng-template #nzTabHeading>
+          <div class="logo_btn btn_r">注册</div>
+        </ng-template>
+        <div class="register_content">
+          <label style="margin-top:40px;">手机号/邮箱：</label>
+          <input type="text">
+          <label>验证码：</label>
+          <div style="border-bottom: 1px solid #999999;">
+            <input type="text" class="verification_input">
+            <div class="verification">验证</div>
+          </div>
+          <label>密码：</label>
+          <input type="text">
+          <a href=""><img src="../../assets/注册键.png" alt=""></a>
+        </div>
+      </nz-tab>
+    </nz-tabset>
+  </div>
+</div>-->

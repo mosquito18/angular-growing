@@ -1,0 +1,22 @@
+<div *ngFor="let card of cards;let index=index">
+  <div id="cardComponent" *ngIf="index==0">
+    <a [routerLink]="['/home/articledetail',card.tab,card.id]" routerLinkActive="active" class="card_title">{{card.title}}</a>
+    <div>    
+      <span class="card_date"> {{ card.editdate | date:"yy.MM.dd HH:mm:ss" }} </span>
+      <span class="card_author">{{card.author}}</span>
+    </div>
+    <p class="card_content">
+      <a [routerLink]="['/home/articledetail',card.tab,card.id]" routerLinkActive="active">
+        <img src="../../assets/card1.jpeg" align="right" width="125" hspace="5" vspace="5">
+      </a>
+        {{card.content}}
+    </p>
+    <div class="card_footer">
+      <nz-tag style="margin:5px;" [nzColor]="colors[index%7]">{{card.tab}}</nz-tag>
+      <div>
+        <i class="fa fa-heart"></i><span>{{card.like}}</span>
+        <i class="fa fa-comment"></i><span>{{card.comment}}</span>
+      </div>
+    </div>
+  </div>
+</div>

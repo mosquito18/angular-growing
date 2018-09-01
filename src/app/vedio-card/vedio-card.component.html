@@ -1,0 +1,26 @@
+<div *ngFor="let data of datas;let index=index">
+    <div id="vedioCardComponent" *ngIf="index>0">
+        <a class="vediocard_l" *ngIf="data.type=='vedio'" [routerLink]="['/home/videodetail',data.tab,data.id]" routerLinkActive="active" (mouseover)="changeDisplay(index)" (mouseout)="changeDisplay(index)">
+            <img [src]="data.img" alt="">
+            <div class="vedio_time" [ngClass]="{'display': display[index],'notDisplay': notDisplay[index]}">12:37</div>
+            <div class="vedio_pause" [ngClass]="{'display': !display[index],'notDisplay': !notDisplay[index]}">
+                <div class="vedio_pause_wrap">
+                    <img src="../../assets/pause.png" alt="">
+                </div>
+            </div>
+        </a>
+        <a *ngIf="data.type=='article'" [routerLink]="['/home/articledetail',data.tab,data.id]" routerLinkActive="active" class="vediocard_l">
+            <img [src]="data.img" alt="">
+        </a>
+        <div class="vediocard_r">
+            <a *ngIf="data.type=='vedio'" [routerLink]="['/home/videodetail',data.tab,data.id]" routerLinkActive="active" class="vedio_title">{{data.title}}</a>
+            <a *ngIf="data.type=='article'" [routerLink]="['/home/articledetail',data.tab,data.id]" routerLinkActive="active" class="vedio_title">{{data.title}}</a>   
+            <div class="vedio_tip">{{data.content}}</div>
+            <div>
+                <nz-tag style="margin:5px;" [nzColor]="colors[index%7]">{{data.tab}}</nz-tag>
+                <i  style="margin-right:5px;" class="fa fa-heart"></i><span>{{data.like}}</span>
+                <i style="margin-right:5px;" class="fa fa-comment"></i><span>{{data.comment}}</span>
+            </div>
+        </div>
+    </div>
+</div>

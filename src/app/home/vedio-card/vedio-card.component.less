@@ -1,0 +1,68 @@
+#vedioCardComponent{
+    width: 100%;
+    padding:15px 20px;
+    height: 115px;
+    display: flex;
+    flex:1;
+    flex-direction: row;
+    .vediocard_l{
+        width:125px;
+        position: relative;
+        img{
+            width:125px;
+            height: 85px;
+        }
+        .vedio_time{
+            position: absolute;
+            background-color: fade(#000,20%);
+            color: #fff;
+            padding: 3px 5px;
+            right:5px;
+            bottom:5px;
+        }
+        .vedio_pause{
+            position: absolute;
+            left:0;
+            top: 0;
+            background-color: fade(#000,30%);
+            height: 100%;
+            img{
+                height: 50%;
+                width: 40%;
+            }
+            .vedio_pause_wrap{
+                height: 100%;          
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    .vediocard_r{
+        width:50%;
+        display: flex;
+        flex:1;
+        flex-direction: column;
+        padding-left:15px;
+        justify-content: space-between;
+        .vedio_title{
+            font-size: 14px;
+        }
+        .vedio_tip,span,i{
+            color:#acacac;
+        }
+        .vedio_tip{
+            font-size: 12px;
+        }
+        // span{
+        //     padding:0 5px 0 3px;
+        // }
+    }
+    .display{
+      display: block;  
+    }
+    .notDisplay{
+        display: none;
+    }
+}

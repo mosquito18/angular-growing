@@ -1,0 +1,66 @@
+#personMessage{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    .myInform{
+        display: flex;
+        flex:1;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 0 20px;
+        border-bottom: 1px solid #aeaeae;
+        position: relative;
+        input{
+            width: 300px;
+            display: block;
+            border: none;
+            outline: none;
+            background: none;
+            padding: 0px 16px;
+        }
+        nz-avatar{
+            width:100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        p{
+            padding: 0px 16px;
+        }
+        p:first-child,input:first-child{
+            font-size: 20px;
+            line-height: 40px;
+            font-weight: bold;
+        }
+        p:last-child,input:last-child{
+            color: #acacac;
+            font-size: 16px;
+        }
+        img{
+            position: absolute;
+            right:0px;
+            bottom: 20px;
+        }
+    }
+    .myWrap{
+        padding:10px 0px 10px 35px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 15px;
+        color: #3b3b3b;
+        border-bottom: 1px solid #aeaeae;
+        span:first-child{
+            font-weight: bold;
+        }
+        img{
+            height: 18px;
+        }
+        input{
+            width: 470px;
+            // padding: 5px;
+            border: none;
+            outline: none;
+            background: none;
+        }
+    }
+}

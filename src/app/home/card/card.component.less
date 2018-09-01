@@ -1,0 +1,57 @@
+#cardComponent{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    .vedio_img{
+        position: relative;
+        img{
+            width:100%;
+        }
+        .vedio_time{
+            position: absolute;
+            background-color: fade(#000,20%);
+            color: #fff;
+            padding: 5px 10px;
+            right:10px;
+            bottom:10px;
+        }
+        .vedio_pause{
+            position: absolute;
+            left:0;
+            top: 0;
+            background-color: fade(#000,30%);
+            height: 100%;
+            img{
+                height: 45%;
+                width: 30%;
+            }
+            .vedio_pause_wrap{
+                height: 100%;          
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    .card_title{
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 30px;
+    }
+    .card_footer{
+        flex:1;
+        display: flex;
+        justify-content: space-between; 
+        span{
+            display: inline-block;
+            margin:0 5px 10px;
+        }
+    }
+    .display{
+      display: block;  
+    }
+    .notDisplay{
+        display: none;
+    }
+}

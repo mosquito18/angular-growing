@@ -1,0 +1,100 @@
+#myClassComponent{
+  .result-part{
+    background: #fff;
+    margin:15px 20px 0;
+    border: 1px solid #bfbfbf;
+    border-radius: 10px;
+    padding: 0 0 20px 20px;
+        .radars{
+      width:26%;
+      display:inline-block;
+      position: relative;
+      >p{
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        position: absolute;
+        top:200px;
+        width:100%;
+      }
+    }
+    .test-result{
+      width:47%;
+      display:inline-block;
+      height: 220px;
+      vertical-align: top;
+      padding:40px 20px;
+      >p{
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 25px;
+      }
+      .result-content{
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+    }
+  }
+  .recommend-study{
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    .tree{
+      .toTop{
+        margin-top:-230px;
+      }
+      >div{
+        position: relative;
+        img:nth-of-type(2){
+          position: absolute;
+        }
+      }
+
+      display: flex;
+      width: 115px;
+      flex-direction: column;
+    }
+
+    // background:#fFF url(../../assets/树枝.png) no-repeat 20px 0;
+    // background-size:120px 100%;
+  }
+  .recommend-part{
+      display: flex;
+      flex-direction: column;
+      margin-top:40px;
+      >p{
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 15px;
+      }
+      .contents{
+          display: flex;
+          flex-direction: row;
+      }
+      .display{
+        display: block;  
+      }
+      .notDisplay{
+          display: none;
+      }
+  }
+  .other-part{
+    margin-top:25px;
+    .other-page{
+      padding:0 30px;
+      .recommend-part{
+        margin-top:0px;
+        margin-bottom: 25px;
+        .contents{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          
+        }
+      }
+    }
+  }
+}
+
+

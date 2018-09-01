@@ -1,0 +1,70 @@
+#myEnterprise{
+    .creatBtn{
+        display: flex;
+        justify-content: flex-end;
+        img{
+            height: 25px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    }
+    .myenter{
+        border: 1px solid #bfbfbf;
+        border-radius: 10px;
+        padding: 15px 25px;
+        margin-top:15px;
+        background: #fff;
+        img{
+            cursor: pointer;
+        }
+        .myInform{
+            display: flex;
+            flex:1;
+            flex-direction: row;
+            align-items: center;
+            padding: 10px 0 20px;
+            border-bottom: 1px solid #aeaeae;
+            position: relative;
+            nz-avatar{
+                width:100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            p{
+                padding: 0px 16px;
+            }
+            p:first-child{
+                font-size: 20px;
+                line-height: 40px;
+                font-weight: bold;
+            }
+            p:last-child{
+                color: #acacac;
+                font-size: 16px;
+            }
+            img{
+                position: absolute;
+                right:0px;
+                bottom: 20px;
+            }
+        }
+        .myWrap{
+            padding:10px 0px 10px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            color: #3b3b3b;
+            border-bottom: 1px solid #aeaeae;
+            span:first-child{
+                font-weight: bold;
+            }
+            img{
+                height: 18px;
+            }
+            nz-tag{
+                margin-bottom: 5px;
+            }
+        }
+    }
+}

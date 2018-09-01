@@ -1,0 +1,97 @@
+#homeComponent{
+  background: #fff;
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  .content-t{
+    display: flex;
+    flex-direction: row;
+    .content-l{
+      width:73%;
+      margin-right: 2.5%;
+      padding-top:50px;
+    }
+    .content-r{
+      width:23.5%;
+      .search{
+        margin:23px 0;
+        border: 2px solid #767676;
+        width:100%x;
+        display: flex;
+        flex: 0 0 auto;
+        height: 30px;
+        align-items: center;
+        border-radius: 30px;
+        padding: 0 10px;
+        background: #fff;
+        input{
+            border:none;
+            height: 25px;
+            width: 265px;
+            &:focus{
+                outline: none
+            }
+        }
+      }
+      .tabs_wrap{
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+        height: 44px;
+        border: 1px solid #e2e2e2;
+        border-radius: 5px 0 0 5px;
+        display: flex;
+        flex:1;
+        align-items: center;
+        background: #ededed;
+        img{
+          width: 37px;
+          height: 32px;
+          margin:0 10px;
+        }
+        .home_tab{
+          background: #333333;
+          border: 1px solid #333333;
+          color: #fff;
+          display:flex;
+          align-items: content;
+          justify-content: center;
+          width: 100%;
+          height: 44px;
+          span{
+            line-height: 44px;
+            font-size: 14px;
+            height: 44px;
+          }
+        }
+      }
+    }
+  }
+  .content-b{
+    margin-top:20px;
+    .card_t{
+      font-size: 14px;
+      color: #acacac;
+      padding:12px 0;
+      border-bottom: 1px solid #acacac;
+      flex-direction: row;
+      display: flex;
+      flex:1;
+      justify-content:space-between;
+      span{
+        flex:0 0 auto;
+      }
+    }
+    .card_b{
+      display: flex;
+      flex-direction: row;
+      .card_l{
+        width: 60%;
+        padding:20px;
+      }
+      .card_r{
+        width:40%;
+      }
+    }
+  }
+}

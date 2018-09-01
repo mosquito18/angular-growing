@@ -1,0 +1,188 @@
+<div id="myClassComponent" [@flyIn]="'active'">
+    <div class="result-part">
+        <div class="radars">
+            <app-radar-chat [alldata]="alldata" [allcolor]="allcolor"></app-radar-chat>
+            <p>自评</p>
+        </div>
+        <div class="radars">
+            <app-radar-chat [alldata]="alldata1" [allcolor]="allcolor1"></app-radar-chat>
+            <p>互评</p>
+        </div>
+        <div class="test-result">
+            <p>亲爱的mosquito：</p>
+            <div class="result-content">
+                测评结果测评结果测评结果测评结果测评结 果测评结果测评结果测评结果测评结果测评 结果测评结果测评结果测评结果测评结果测 评结果测评结果测评结果测评结果测评结果 测评结果测评结果测评结果测评结果测评结 果测评结果测评结果测评结果测评结果测评 结果测评结果测评结果测评结果测评结果测
+                评结果测评结果测评结果测评结果测评结果
+            </div>
+        </div>
+    </div>
+    <div class="recommend-study">
+        <div class="tree">
+            <div>
+                <img src="../../assets/树枝.png" alt="">
+                <img style="top:40px;left:35px;" src="../../assets/点-绿.png" alt="">
+            </div>
+            <div>
+                <img class="toTop" src="../../assets/树枝.png" alt="">
+                <img style="top:-120px;left:35px;" src="../../assets/点-黄.png" alt="">
+
+            </div>
+            <div>
+                <img class="toTop" src="../../assets/树枝.png" alt="">
+                <img style="top:-50px;left:35px;" src="../../assets/点-灰.png" alt="">
+            </div>
+
+        </div>
+        <div class="list">
+            <div class="recommend-part">
+                <p>阶段一:XXXXXX</p>
+                <div class="contents">
+                    <div *ngFor="let recommend of recommends;let index=index">
+                        <app-class-vedio-article *ngIf="index<4" [datas]="recommend" [indexs]="index"></app-class-vedio-article>
+                    </div>
+
+                </div>
+            </div>
+            <div class="recommend-part">
+                <p>阶段二:XXXXXX</p>
+                <div class="contents">
+                    <div *ngFor="let recommend of recommends;let index=index">
+                        <app-class-vedio-article *ngIf="3<index&&index<8" [datas]="recommend" [indexs]="index"></app-class-vedio-article>
+                    </div>
+
+                </div>
+            </div>
+            <div class="recommend-part">
+                <p>阶段三:XXXXXX</p>
+                <div class="contents">
+                    <div *ngFor="let recommend of recommends;let index=index">
+                        <app-class-vedio-article *ngIf="7<index" [datas]="recommend" [indexs]="index"></app-class-vedio-article>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="other-part">
+        <nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
+            <!--<nz-tab *ngFor="let tab of tabs">
+                <ng-template #nzTabHeading>
+                    {{tab.title}}
+                </ng-template>
+                <span>Content of Tab Pane {{tab.title}}</span>
+            </nz-tab>-->
+            <nz-tab>
+                <ng-template #nzTabHeading>
+                    程序员推荐
+                </ng-template>
+                <div class="other-page">
+                    <div class="recommend-part">
+                        <p>程序员浏览最多：</p>
+                        <div class="contents">
+                            <div *ngFor="let recommend of recommends;let index=index">
+                                <app-class-vedio-article *ngIf="index<5&&index>0" [datas]="recommend" [indexs]="index"></app-class-vedio-article>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="recommend-part">
+                        <p>程序员浏览最多：</p>
+                        <div class="contents">
+                            <div *ngFor="let recommend of recommends;let index=index">
+                                <app-class-vedio-article *ngIf="index<5&&index>0" [datas]="recommend" [indexs]="index"></app-class-vedio-article>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </nz-tab>
+            <nz-tab>
+                <ng-template #nzTabHeading>
+                    管理层推荐
+                </ng-template>
+                <div class="other-page">
+                    <div class="recommend-part">
+                        <p>管理层浏览最多：</p>
+                        <div class="contents">
+                            <div *ngFor="let recommend of recommends;let index=index">
+                                <app-class-vedio-article *ngIf="index<4" [datas]="recommend" [indexs]="index"></app-class-vedio-article>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="recommend-part">
+                        <p>管理层浏览最多：</p>
+                        <div class="contents">
+                            <div *ngFor="let recommend of recommends;let index=index">
+                                <app-class-vedio-article *ngIf="index<4" [datas]="recommend" [indexs]="index"></app-class-vedio-article>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--<div>
+                    <app-recommend-card></app-recommend-card>
+                    <app-recommend-card></app-recommend-card>
+                </div>-->
+            </nz-tab>
+            <nz-tab>
+                <ng-template #nzTabHeading>
+                    销售层推荐
+                </ng-template>
+                <div class="other-page">
+                    <div class="recommend-part">
+                        <p>销售层浏览最多：</p>
+                        <div class="contents">
+                            <div *ngFor="let recommend of recommends;let index=index">
+                                <app-class-vedio-article *ngIf="index<5&&index>0" [datas]="recommend" [indexs]="index"></app-class-vedio-article>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="recommend-part">
+                        <p>销售层浏览最多：</p>
+                        <div class="contents">
+                            <div *ngFor="let recommend of recommends;let index=index">
+                                <app-class-vedio-article *ngIf="index<5&&index>0" [datas]="recommend" [indexs]="index"></app-class-vedio-article>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--<div>
+                    <app-recommend-card></app-recommend-card>
+                    <app-recommend-card></app-recommend-card>
+                </div>-->
+            </nz-tab>
+            <nz-tab>
+                <ng-template #nzTabHeading>
+                    设计层推荐
+                </ng-template>
+                <div class="other-page">
+                    <div class="recommend-part">
+                        <p>设计层浏览最多：</p>
+                        <div class="contents">
+                            <div *ngFor="let recommend of recommends;let index=index">
+                                <app-class-vedio-article *ngIf="index<4" [datas]="recommend" [indexs]="index"></app-class-vedio-article>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="recommend-part">
+                        <p>设计层浏览最多：</p>
+                        <div class="contents">
+                            <div *ngFor="let recommend of recommends;let index=index">
+                                <app-class-vedio-article *ngIf="index<4" [datas]="recommend" [indexs]="index"></app-class-vedio-article>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--<div>
+                    <app-recommend-card></app-recommend-card>
+                    <app-recommend-card></app-recommend-card>
+                </div>-->
+            </nz-tab>
+        </nz-tabset>
+    </div>
+</div>
